@@ -2,33 +2,36 @@ const features = [
     {
         title: "Ads Everywhere",
         subtitle: "DOOH Solution",
-        description: "A distributed digital-out-of-home networks with scheduled advertisement. Centralized distribution via Ads Everywhere network ensures high frequency and reliable reach.",
+        description: "A distributed digital-out-of-home networks with scheduled advertisement. Centralized distribution via Ads Everywhere network ensures high frequency and reliable reach across multiple venue types.",
         gradient: "from-pink-100 to-purple-100",
-        border: "border-pink-200"
+        border: "border-pink-200",
+        image: "/assets/ads.png"
     },
     {
         title: "Hybrid Activation",
         subtitle: "Interactive Experiences",
-        description: "Offline-online activations interactive livestreams with on-site experiences. Formats include EXPO activations and NOBAR synchronized watch-parties.",
+        description: "Offline-online activations interactive livestreams with on-site experiences. formats include EXPO activations and NOBAR synchronized watch-parties.",
         gradient: "from-purple-100 to-blue-100",
-        border: "border-purple-200"
+        border: "border-purple-200",
+        image: "/assets/expo.png"
     },
     {
         title: "Concert Everywhere",
         subtitle: "Digital Performances",
-        description: "Multi-venue concert formats and digital performances: SyncFest, Borderless Beats, and Meta Arena. Designed for synchronized audience experiences.",
+        description: "Multi-venue concert formats and digital performances: SyncFest, Borderless Beats, and Meta Arena. Designed for synchronized audience experiences and scalable ticketing.",
         gradient: "from-blue-100 to-cyan-100",
-        border: "border-blue-200"
+        border: "border-blue-200",
+        image: "/assets/concert.png"
     }
 ];
 
 const services = [
-    { title: "Digital Screen Network", desc: "Public screens in clinics, retail, malls, and partner venues." },
-    { title: "Ad Slots & TV 3.0", desc: "Scheduled Rotation advertisement content that deliver repeat impressions." },
-    { title: "Interactive Live Stream", desc: "Two-way engagement through QR, low-latency video and audio." },
+    { title: "Digital Screen Network", desc: "A network of public screens in clinics, retail, malls, and other preferred partner venue." },
+    { title: "Ad Slots & TV 3.0", desc: "Scheduled Rotation advertisement content that deliver repeat impressions across locations" },
+    { title: "Interactive Live Stream", desc: "Livestream with two-way engagement through QR, low-latency video and audio" },
     { title: "On-Site Gamification", desc: "Synchronized challenges and activations managed from the central studio." },
-    { title: "Overlay Ads", desc: "Integrated monetization layers running on top of live streams." },
-    { title: "Multi Cast Distribution", desc: "One production distributed simultaneously to multiple partner venues." }
+    { title: "Overlay Ads", desc: "Integrated monetization layers that run on top of the live streams without interrupting the experiences" },
+    { title: "Multi Cast Distribution", desc: "One production disctbuted simultaneously to multiple partner venues" }
 ];
 
 export default function Features() {
@@ -44,12 +47,22 @@ export default function Features() {
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-24">
                     {features.map((feature, index) => (
-                        <div key={index} className={`relative group p-8 rounded-3xl border ${feature.border} bg-gradient-to-br ${feature.gradient} backdrop-blur-xl hover:shadow-[0_0_20px_rgba(255,20,147,0.2)] transition-all duration-500 hover:-translate-y-2`}>
-                            <h3 className="text-2xl font-bold text-gray-900 mb-2">{feature.title}</h3>
-                            <p className="text-sm font-semibold text-pink-600 mb-4 uppercase tracking-wider">{feature.subtitle}</p>
-                            <p className="text-gray-700 leading-relaxed">
-                                {feature.description}
-                            </p>
+                        <div key={index} className={`relative group rounded-3xl border ${feature.border} bg-gradient-to-br ${feature.gradient} backdrop-blur-xl hover:shadow-[0_0_20px_rgba(255,20,147,0.2)] transition-all duration-500 hover:-translate-y-2 overflow-hidden`}>
+                            <div className="h-48 w-full relative overflow-hidden">
+                                <img
+                                    src={feature.image}
+                                    alt={feature.title}
+                                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-white/50 to-transparent"></div>
+                            </div>
+                            <div className="p-8">
+                                <h3 className="text-2xl font-bold text-gray-900 mb-2">{feature.title}</h3>
+                                <p className="text-sm font-semibold text-pink-600 mb-4 uppercase tracking-wider">{feature.subtitle}</p>
+                                <p className="text-gray-700 leading-relaxed">
+                                    {feature.description}
+                                </p>
+                            </div>
                         </div>
                     ))}
                 </div>
